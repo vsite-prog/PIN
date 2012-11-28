@@ -12,17 +12,24 @@
     <form id="form1" runat="server">
     
     <div>
-   
+        <h4 > Predavanje 6 primjeri </h4>
     <div id="divLogin" runat=server style="float:right;width=280px;">
-    <div style="clear:both;"></div>
-     <h4 style="clear:both;> Predavanje 6 primjeri </h4>
+    <asp:Label ID="lb_greska" runat="server" Text="" ForeColor="#FF3300"></asp:Label><br />
     <asp:Label ID="Label1" runat="server" Text="Korisničko ime:"></asp:Label><br /><asp:TextBox ID="tb_kime"
         runat="server"></asp:TextBox><br />
         <asp:Label ID="Label2" runat="server" Text="Lozinka: "></asp:Label><br /><asp:TextBox ID="tb_lozinka"
         runat="server" TextMode="Password"></asp:TextBox><br />
         <asp:Button ID="Button1" runat="server" Text="Prijava" onclick="Button1_Click" />
-
+        
     </div>
+    <div id="divLogout" style="float:right" runat=server> 
+    Dobro došli korisniče: 
+    <asp:Label ID="lb_kPunoIme" runat="server" Text="" Font-Bold="True"></asp:Label>
+        <br /> <asp:linkbutton ID="Linkbutton1" runat="server" 
+            onclick="Linkbutton1_Click">Odjava</asp:linkbutton>
+    </div>
+        
+<div style="clear:both;"></div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
@@ -30,3 +37,4 @@
     </form>
 </body>
 </html>
+

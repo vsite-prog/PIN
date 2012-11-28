@@ -9,6 +9,22 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        int counter;
+        if (Application["brojDef"] == null)
+            counter=1;
+        else{
+            counter = (int) Application["brojDef"];
+            counter++;
+           
+        }
+        lb_appCnt.Text = counter.ToString();
+        Application.Lock();
+        Application["brojDef"] = counter;
+        Application.UnLock();
+
+
+        
+        
 
     }
   

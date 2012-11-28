@@ -5,6 +5,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:Label ID="lb_appCnt" runat="server" Text="Label"></asp:Label>. otvaranje ove stranice!!!
+    <br /><br />
+    
+    
     <asp:Label ID="Label1" runat="server" Text="Odaberi jezik: "></asp:Label>
     <asp:DropDownList runat="server" id="DDLJezik" AutoPostBack=true
         onselectedindexchanged="DDLJezik_SelectedIndexChanged" style="height: 22px">
@@ -14,7 +18,6 @@
     </asp:DropDownList>
     <br /><br />
     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Cookie.aspx">Stranica sa kolacima...</asp:HyperLink>
-
-
+    
 </asp:Content>
 
