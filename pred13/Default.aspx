@@ -11,11 +11,21 @@
     <div>
     <h4> Studenti na faksu </h4>
     Kolegij: 
-        <asp:DropDownList ID="DropDownList1" runat="server" onselectedindexchanged="DropDownList1_SelectedIndexChanged" 
+        <asp:DropDownList ID="DropDownList1" runat="server" onselectedindexchanged="DropDownList1_SelectedIndexChanged" AutoPostBack=true
             >
         </asp:DropDownList> <br /><br />
         <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>
+        <br />
+        <br />
+        <h5> Novi student</h5>
+        Ime:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 
+        <asp:TextBox ID="tb_ime" runat="server"></asp:TextBox><br />
+                Prezime: 
+        <asp:TextBox ID="tb_prezime" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="Button1" runat="server" Text="Spremi" onclick="Button1_Click" />
     </div>
     </form>
 </body>
