@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ZivotinjeModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+    <EntitySetMapping Name="zivotinja">
+      <EntityTypeMapping TypeName="ZivotinjeModel.zivotinja">
+        <MappingFragment StoreEntitySet="zivotinja">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ime" ColumnName="ime" />
+          <ScalarProperty Name="vrsta" ColumnName="vrsta" />
+          <ScalarProperty Name="zooId" ColumnName="zooId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zoo">
+      <EntityTypeMapping TypeName="ZivotinjeModel.zoo">
+        <MappingFragment StoreEntitySet="zoo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="grad" ColumnName="grad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

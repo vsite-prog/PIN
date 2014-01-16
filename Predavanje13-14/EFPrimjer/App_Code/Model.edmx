@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ZivotinjeModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ZivotinjeModelStoreContainer">
+          <EntitySet Name="zivotinja" EntityType="ZivotinjeModel.Store.zivotinja" store:Type="Tables" />
+          <EntitySet Name="zoo" EntityType="ZivotinjeModel.Store.zoo" store:Type="Tables" />
+          <AssociationSet Name="fk_zoo" Association="ZivotinjeModel.Store.fk_zoo">
+            <End Role="zoo" EntitySet="zoo" />
+            <End Role="zivotinja" EntitySet="zivotinja" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="zivotinja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="vrsta" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="zooId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="zoo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="grad" Type="nvarchar" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="fk_zoo">
+          <End Role="zoo" Type="ZivotinjeModel.Store.zoo" Multiplicity="1" />
+          <End Role="zivotinja" Type="ZivotinjeModel.Store.zivotinja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zoo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="zivotinja">
+              <PropertyRef Name="zooId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ZivotinjeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="zivotinja" EntityType="ZivotinjeModel.zivotinja" />
+          <EntitySet Name="zoo" EntityType="ZivotinjeModel.zoo" />
+          <AssociationSet Name="fk_zoo" Association="ZivotinjeModel.fk_zoo">
+            <End Role="zoo" EntitySet="zoo" />
+            <End Role="zivotinja" EntitySet="zivotinja" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="zivotinja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="vrsta" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="zooId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="zoo" Relationship="ZivotinjeModel.fk_zoo" FromRole="zivotinja" ToRole="zoo" />
+        </EntityType>
+        <EntityType Name="zoo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grad" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="zivotinja" Relationship="ZivotinjeModel.fk_zoo" FromRole="zoo" ToRole="zivotinja" />
+        </EntityType>
+        <Association Name="fk_zoo">
+          <End Role="zoo" Type="ZivotinjeModel.zoo" Multiplicity="1" />
+          <End Role="zivotinja" Type="ZivotinjeModel.zivotinja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zoo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="zivotinja">
+              <PropertyRef Name="zooId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ZivotinjeModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="zivotinja">
+            <EntityTypeMapping TypeName="ZivotinjeModel.zivotinja">
+              <MappingFragment StoreEntitySet="zivotinja">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="vrsta" ColumnName="vrsta" />
+                <ScalarProperty Name="zooId" ColumnName="zooId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zoo">
+            <EntityTypeMapping TypeName="ZivotinjeModel.zoo">
+              <MappingFragment StoreEntitySet="zoo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="grad" ColumnName="grad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model">
+        <EntityTypeShape EntityType="ZivotinjeModel.zivotinja" Width="1.5" PointX="3" PointY="0.875" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZivotinjeModel.zoo" Width="1.5" PointX="0.75" PointY="1.125" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="ZivotinjeModel.fk_zoo" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.9228417968749998" />
+          <ConnectorPoint PointX="3" PointY="1.9228417968749998" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

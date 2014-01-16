@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZivotinjeModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ZivotinjeModelStoreContainer">
+    <EntitySet Name="zivotinja" EntityType="ZivotinjeModel.Store.zivotinja" store:Type="Tables" />
+    <EntitySet Name="zoo" EntityType="ZivotinjeModel.Store.zoo" store:Type="Tables" />
+    <AssociationSet Name="fk_zoo" Association="ZivotinjeModel.Store.fk_zoo">
+      <End Role="zoo" EntitySet="zoo" />
+      <End Role="zivotinja" EntitySet="zivotinja" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="zivotinja">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ime" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="vrsta" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="zooId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="zoo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="grad" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <Association Name="fk_zoo">
+    <End Role="zoo" Type="ZivotinjeModel.Store.zoo" Multiplicity="1" />
+    <End Role="zivotinja" Type="ZivotinjeModel.Store.zivotinja" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="zoo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zivotinja">
+        <PropertyRef Name="zooId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

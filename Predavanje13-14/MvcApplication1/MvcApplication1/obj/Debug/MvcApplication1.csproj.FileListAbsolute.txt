@@ -1,0 +1,5 @@
+C:\VSITE\PIN\Predavanja\home_primjeri\MvcApplication1\MvcApplication1\bin\MvcApplication1.dll
+C:\VSITE\PIN\Predavanja\home_primjeri\MvcApplication1\MvcApplication1\bin\MvcApplication1.pdb
+C:\VSITE\PIN\Predavanja\home_primjeri\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.csprojResolveAssemblyReference.cache
+C:\VSITE\PIN\Predavanja\home_primjeri\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.dll
+C:\VSITE\PIN\Predavanja\home_primjeri\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.pdb
