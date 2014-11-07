@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+            <title>Naš Web </title>
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div> <p> Ovo je zajednički di svih stranica...</p></div>
+        <asp:ContentPlaceHolder id="content_body1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <p> Još malo zajedničko</p>
+        <asp:ContentPlaceHolder id="content_body2" runat="server">
+            <p> I ja sam Master</p>
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
