@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+         <asp:Label ID="lb_greska" runat="server" Text="" ForeColor="Red" />
+        <asp:Panel ID="pn_prijava" runat="server" HorizontalAlign="Right">
+
+            <asp:Label ID="Label1" runat="server" Text="Korisničko ime:"></asp:Label><asp:TextBox ID="tb_ime" runat="server"></asp:TextBox><br />
+            <asp:Label ID="Label2" runat="server" Text="Lozinka:"></asp:Label><asp:TextBox ID="tb_lozinka" runat="server" TextMode="Password"></asp:TextBox><br />
+            <asp:LinkButton ID="bt_prijava" runat="server" OnClick="bt_prijava_Click">Prijavi se</asp:LinkButton>
+        </asp:Panel>
+                <asp:Panel ID="pn_odjava" runat="server" HorizontalAlign="Right">
+
+            <asp:Label ID="lb_odjava" runat="server" Text=""></asp:Label><br />
+            <asp:LinkButton ID="bt_odjava" runat="server" OnClick="bt_odjava_Click">Odjavi se</asp:LinkButton>
+        </asp:Panel>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
