@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GradoviModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="GradoviModelStoreContainer">
+          <EntitySet Name="drzave" EntityType="GradoviModel.Store.drzave" store:Type="Tables" />
+          <EntitySet Name="gradovi" EntityType="GradoviModel.Store.gradovi" store:Type="Tables" />
+          <AssociationSet Name="fk_drzave" Association="GradoviModel.Store.fk_drzave">
+            <End Role="drzave" EntitySet="drzave" />
+            <End Role="gradovi" EntitySet="gradovi" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="drzave">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="nvarchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="gradovi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="drzavaId" Type="int" />
+        </EntityType>
+        <Association Name="fk_drzave">
+          <End Role="drzave" Type="GradoviModel.Store.drzave" Multiplicity="0..1" />
+          <End Role="gradovi" Type="GradoviModel.Store.gradovi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drzave">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gradovi">
+              <PropertyRef Name="drzavaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GradoviModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DatabaseEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="drzave" EntityType="GradoviModel.drzave" />
+          <EntitySet Name="gradovi" EntityType="GradoviModel.gradovi" />
+          <AssociationSet Name="fk_drzave" Association="GradoviModel.fk_drzave">
+            <End Role="drzave" EntitySet="drzave" />
+            <End Role="gradovi" EntitySet="gradovi" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="drzave">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="gradovi" Relationship="GradoviModel.fk_drzave" FromRole="drzave" ToRole="gradovi" />
+        </EntityType>
+        <EntityType Name="gradovi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="drzavaId" Type="Int32" />
+          <NavigationProperty Name="drzave" Relationship="GradoviModel.fk_drzave" FromRole="gradovi" ToRole="drzave" />
+        </EntityType>
+        <Association Name="fk_drzave">
+          <End Role="drzave" Type="GradoviModel.drzave" Multiplicity="0..1" />
+          <End Role="gradovi" Type="GradoviModel.gradovi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drzave">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gradovi">
+              <PropertyRef Name="drzavaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GradoviModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="drzave">
+            <EntityTypeMapping TypeName="GradoviModel.drzave">
+              <MappingFragment StoreEntitySet="drzave">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gradovi">
+            <EntityTypeMapping TypeName="GradoviModel.gradovi">
+              <MappingFragment StoreEntitySet="gradovi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="drzavaId" ColumnName="drzavaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
