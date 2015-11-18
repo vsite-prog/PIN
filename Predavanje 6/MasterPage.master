@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Predavanje 6</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <p> Ovo je dio na masteru</p>
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            Juhuuuuu
+        </asp:ContentPlaceHolder>
+       <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+            Hojlaaaaaaa...
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
