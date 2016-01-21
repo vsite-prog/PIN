@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SkiModelStoreContainer" CdmEntityContainer="SkiEntities">
+    <EntitySetMapping Name="Drzava">
+      <EntityTypeMapping TypeName="SkiModel.Drzava">
+        <MappingFragment StoreEntitySet="Drzava">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ski">
+      <EntityTypeMapping TypeName="SkiModel.Ski">
+        <MappingFragment StoreEntitySet="Ski">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
+          <ScalarProperty Name="drzavaId" ColumnName="drzavaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

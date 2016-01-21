@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SkiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Drzava">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Ski" Relationship="Self.fk_fdrzaba" FromRole="Drzava" ToRole="Ski" />
+  </EntityType>
+  <EntityType Name="Ski">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="drzavaId" Type="Int32" />
+    <NavigationProperty Name="Drzava" Relationship="Self.fk_fdrzaba" FromRole="Ski" ToRole="Drzava" />
+  </EntityType>
+  <Association Name="fk_fdrzaba">
+    <End Role="Drzava" Type="Self.Drzava" Multiplicity="0..1" />
+    <End Role="Ski" Type="Self.Ski" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drzava">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ski">
+        <PropertyRef Name="drzavaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SkiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Drzava" EntityType="Self.Drzava" />
+    <EntitySet Name="Ski" EntityType="Self.Ski" />
+    <AssociationSet Name="fk_fdrzaba" Association="Self.fk_fdrzaba">
+      <End Role="Drzava" EntitySet="Drzava" />
+      <End Role="Ski" EntitySet="Ski" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
