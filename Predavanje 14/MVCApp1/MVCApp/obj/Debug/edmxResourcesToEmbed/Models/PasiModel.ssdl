@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PasiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Pas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="naziv" Type="nvarchar" MaxLength="50" />
+    <Property Name="vlasnikId" Type="int" />
+  </EntityType>
+  <EntityType Name="Vlasnik">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="naziv" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Pas__vlasnikId__1273C1CD">
+    <End Role="Vlasnik" Type="Self.Vlasnik" Multiplicity="0..1" />
+    <End Role="Pas" Type="Self.Pas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vlasnik">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pas">
+        <PropertyRef Name="vlasnikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PasiModelStoreContainer">
+    <EntitySet Name="Pas" EntityType="Self.Pas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vlasnik" EntityType="Self.Vlasnik" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Pas__vlasnikId__1273C1CD" Association="Self.FK__Pas__vlasnikId__1273C1CD">
+      <End Role="Vlasnik" EntitySet="Vlasnik" />
+      <End Role="Pas" EntitySet="Pas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

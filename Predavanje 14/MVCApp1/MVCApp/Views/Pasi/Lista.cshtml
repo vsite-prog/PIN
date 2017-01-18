@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MVCApp.Models.Pas>
+
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h4>Tekst</h4>
+@for(int i=0; i < ViewBag.broj; i++)
+{
+    <p> @ViewBag.message</p>
+}
+<h2>Lista</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vlasnik.naziv)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vlasnik.naziv)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Pas", new { id = item.id },null) |
+            @Html.ActionLink("Details", "Details", "Pas", new { id=item.id }, null) |
+            @Html.ActionLink("Delete", "Delete", "Pas", new { id=item.id }, null)
+        </td>
+    </tr>
+}
+
+</table>

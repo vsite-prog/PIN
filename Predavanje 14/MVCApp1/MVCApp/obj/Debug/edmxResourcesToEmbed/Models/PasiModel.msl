@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PasiModelStoreContainer" CdmEntityContainer="PasiEntities">
+    <EntitySetMapping Name="Pas">
+      <EntityTypeMapping TypeName="PasiModel.Pas">
+        <MappingFragment StoreEntitySet="Pas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
+          <ScalarProperty Name="vlasnikId" ColumnName="vlasnikId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vlasnik">
+      <EntityTypeMapping TypeName="PasiModel.Vlasnik">
+        <MappingFragment StoreEntitySet="Vlasnik">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
