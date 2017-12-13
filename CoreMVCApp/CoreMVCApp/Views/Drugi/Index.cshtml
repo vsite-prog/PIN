@@ -1,0 +1,20 @@
+﻿@*
+   sada ćemo malo čitati iz Viewbag-a
+    sa Viewdata
+    (List<string>) Viewdata["studenti"]
+*@
+@{
+}
+
+<h4> Studenti</h4>
+<ul>
+    @foreach (string student in ViewBag.studenti)
+    {
+        <li>@student</li>
+
+    }
+
+</ul>
+
+
+
