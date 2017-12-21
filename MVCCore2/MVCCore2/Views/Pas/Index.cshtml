@@ -1,0 +1,48 @@
+@model IEnumerable<MVCCore2.Models.Pas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-controller="Vrsta" asp-action="Index">Vidi vrste</a>
+    <a asp-action="Create">Stvori novog psa</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DatRod)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vrsta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatRod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vrsta.Naziv)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
