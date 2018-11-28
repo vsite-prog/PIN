@@ -163,16 +163,6 @@ public partial class _Default : System.Web.UI.Page
             {
                 Response.Redirect("Druga.aspx");
             }
-
-            // idemo ponovo demonstrirati kako bi se povezao
-            reader.Close();
-            reader = command.ExecuteReader();
-
-            // Neka reader bude izvor podataka za naš gri view
-            gv_korisnici.DataSource = reader;
-            // ajde sad pročitaj podatke
-            gv_korisnici.DataBind();
-
         }
         catch (SqlException ex)
         {
