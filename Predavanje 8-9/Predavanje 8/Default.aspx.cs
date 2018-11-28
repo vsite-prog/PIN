@@ -147,7 +147,7 @@ public partial class _Default : System.Web.UI.Page
 
             if (!reader.HasRows)
             {
-                // Greška, poruka o grešci
+                // Kriv unos korisničkog imena, poruka o grešci
             }
             reader.Read();
             // daj mi lozinku i sol
