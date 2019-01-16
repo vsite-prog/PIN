@@ -1,0 +1,36 @@
+﻿@model MVCModelApp.Models.Projekcija
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Projekcija</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Film)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Film.Naziv)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Kino)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Kino.Naziv)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
