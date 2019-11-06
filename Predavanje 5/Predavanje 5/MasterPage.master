@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+         <h3> Naš fenomenalni site</h3>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            Ovo je neki sadržaj iz mastera
+        </asp:ContentPlaceHolder>
+        <h3> Sredina strnice</h3>
+        <hr />
+         <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+             Ovo je drugi sadržaj iz mastera
+        </asp:ContentPlaceHolder>
+
+        <footer>Ovo je kraj priče</footer>
+    </div>
+    </form>
+</body>
+</html>
