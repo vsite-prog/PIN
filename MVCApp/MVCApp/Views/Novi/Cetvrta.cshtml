@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Cetvrta";
+}
+
+<h1>Cetvrta</h1>
+<p> Ovo je naša četvrta stranica po redu...</p>
+<p> @ViewData["podatak"]</p>
+<p> @ViewBag.podatak</p>
+<p> @ViewData["par"]</p>
+@ViewBag.par
+<br />
+<hr />
+@{
+    List<string> studenti = new List<string>()
+    {
+        "Mate Matić",
+        "Frane Franić",
+        "Ana Anić"
+    };
+}
+
+<hr />
+<ul>
+    @{
+        foreach(string student in studenti)
+        {
+            <li>@student </li>
+        }
+    }
+</ul>
+
+
