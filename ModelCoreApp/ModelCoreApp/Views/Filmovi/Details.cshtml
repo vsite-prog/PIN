@@ -1,0 +1,42 @@
+﻿@model ModelCoreApp.Models.Film
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Film</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Drzava)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Drzava)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DatIzd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DatIzd)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Zanr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Zanr.Naziv)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
