@@ -23,5 +23,8 @@ namespace ModelCoreApp.Models
         [Display(Name ="Žanr")]
         public Zanr Zanr { get; set; }
         public int ZanrId { get; set; }
+
+        [DataType(DataType.Text)]
+        public string Opis { get; set; }
     }
 }

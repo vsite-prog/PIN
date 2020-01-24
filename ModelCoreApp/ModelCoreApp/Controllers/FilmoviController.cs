@@ -25,6 +25,30 @@ namespace ModelCoreApp.Controllers
             return View(await dB2Context.ToListAsync());
         }
 
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(string trazi)
+        {
+            // LINQ kod za čitanje iz same baze podataka
+            var filmovi = from film in _context.Film
+                          select film;
+
+            // Provjeri ima li nešto za traženje unutar naziva
+            if (!String.IsNullOrEmpty(trazi))
+            {
+                // Filtriraj
+                filmovi = filmovi.Where(f => f.Naziv.Contains(trazi));
+            }
+
+            var sviFilmovi = filmovi.Include(f => f.Zanr);
+
+            // POšalji ga u View
+            ViewBag.Trazi = trazi;
+            return View(filmovi);
+        }
+
         // GET: Filmovi/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -56,7 +80,7 @@ namespace ModelCoreApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Naziv,Drzava,DatIzd,ZanrId")] Film film)
+        public async Task<IActionResult> Create([Bind("Id,Naziv,Drzava,DatIzd,ZanrId, Opis")] Film film)
         {
             if (ModelState.IsValid)
             {

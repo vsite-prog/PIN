@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ModelCoreApp.Models;
 
 namespace ModelCoreApp.Migrations
 {
     [DbContext(typeof(DB2Context))]
-    partial class DB2ContextModelSnapshot : ModelSnapshot
+    [Migration("20200123164714_Opis")]
+    partial class Opis
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

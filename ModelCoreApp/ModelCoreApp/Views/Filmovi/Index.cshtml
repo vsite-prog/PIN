@@ -5,6 +5,10 @@
 }
 
 <h1>Index</h1>
+<form asp-controller="Filmovi" asp-action="Index">
+    Unesi tekst koji je sadržan u nazivu: <input type="search" name="trazi" value="@ViewBag.Trazi" />
+    <input type="submit" value="Traži" />
+</form>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -24,6 +28,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Zanr)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -41,6 +48,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Zanr.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
