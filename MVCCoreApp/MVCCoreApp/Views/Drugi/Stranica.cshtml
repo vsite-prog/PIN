@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<string> imena = new List<string>()
+    {
+        "Pajo Patak",
+        "Šiljo i Miki",
+        "Zekoslav Mrkva"
+    };
+}
+<h2> Naša stranica </h2>
+<ol>
+    @{
+        foreach (string ime in imena)
+        {
+            <li>@ime</li>
+        }
+    }
+</ol>
+
