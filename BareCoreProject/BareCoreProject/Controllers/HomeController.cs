@@ -14,5 +14,11 @@ namespace BareCoreProject.Controllers
             return Ok("Pozdrav iz kontrolera!");
             // return View();
         }
+
+        [HttpGet("/Druga")]
+        public IActionResult Druga()
+        {
+            return View();
+        }
     }
 }
